@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.szhc.acgcoco.dao.UserClassifyDAO">
+
+    <resultMap type="com.szhc.acgcoco.base.entity.dto.UserClassifyDTO" id="UserClassifyMap">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="classifyId" column="classify_id" jdbcType="INTEGER"/>
+        <result property="userId" column="user_id" jdbcType="INTEGER"/>
+        <result property="sort" column="sort" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="UserClassifyMap">
+        select
+          id, classify_id, user_id, sort
+        from public.user_classify
+        where id = #{id}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="UserClassifyMap">
+        select
+          id, classify_id, user_id, sort
+        from public.user_classify
+        limit #{offset}, #{limit}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="UserClassifyMap">
+        select
+          id, classify_id, user_id, sort, type
+        from public.user_classify
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="classifyId != null">
+                and classify_id = #{classifyId}
+            </if>
+            <if test="userId != null">
+                and user_id = #{userId}
+            </if>
+            <if test="sort != null">
+                and sort = #{sort}
+            </if>
+
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into public.user_classify(classify_id, user_id, sort)
+        values (#{classifyId}, #{userId}, #{sort})
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update public.user_classify
+        <set>
+            <if test="classifyId != null">
+                classify_id = #{classifyId},
+            </if>
+            <if test="userId != null">
+                user_id = #{userId},
+            </if>
+            <if test="sort != null">
+                sort = #{sort},
+            </if>
+
+        </set>
+        where id = #{id}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from public.user_classify where id = #{id}
+    </delete>
+
+    <resultMap type="com.szhc.acgcoco.base.entity.bo.UserClassifyBO" id="userClassifyBOMap">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="classifyId" column="classify_id" />
+        <result property="name" column="name" />
+        <result property="sort" column="sort" />
+        <result property="type" column="type" />
+    </resultMap>
+
+    <select id="queryUserClassifyAll"  resultMap="userClassifyBOMap">
+        select uy.id,uy.classify_id,uy.sort,y.name,y.type  from user_classify uy  left join classify y on uy.classify_id = y.id  where user_id=#{userId}  and y.status=0  order by uy.sort DESC
+    </select>
+</mapper>

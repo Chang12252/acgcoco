@@ -1,7 +1,7 @@
 package com.szhc.acgcoco.base.config;
 
-import com.szhc.acgcoco.base.dto.ResultDTO;
-import com.szhc.acgcoco.base.dto.ResultDTOBuilder;
+import com.szhc.acgcoco.base.entity.dto.ResultDTO;
+import com.szhc.acgcoco.base.entity.dto.ResultDTOBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.ExceptionHandler;

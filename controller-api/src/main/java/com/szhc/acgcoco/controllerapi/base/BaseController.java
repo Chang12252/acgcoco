@@ -1,6 +1,6 @@
 package com.szhc.acgcoco.controllerapi.base;
 
-import com.szhc.acgcoco.base.entity.UserBO;
+import com.szhc.acgcoco.base.entity.bo.UserBO;
 import com.szhc.acgcoco.base.util.RedisUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -28,7 +28,10 @@ public class BaseController {
         //UserBO userBO= new UserBO();
         //userBO.setId(new Long(66));
         //return userBO;
-        return (UserBO) this.getSession(request, CURRENT_LOGIN_USER);
+        UserBO  userBO=new UserBO();
+        userBO.setId(1L);
+
+        return userBO;// (UserBO) this.getSession(request, CURRENT_LOGIN_USER);
     }
 
     /**

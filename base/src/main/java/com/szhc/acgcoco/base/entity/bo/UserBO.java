@@ -1,4 +1,4 @@
-package com.szhc.acgcoco.base.entity;
+package com.szhc.acgcoco.base.entity.bo;
 
 import java.io.Serializable;
 import java.util.Date;

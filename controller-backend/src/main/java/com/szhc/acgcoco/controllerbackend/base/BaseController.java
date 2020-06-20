@@ -1,6 +1,6 @@
 package com.szhc.acgcoco.controllerbackend.base;
 
-import com.szhc.acgcoco.base.entity.AdminBO;
+import com.szhc.acgcoco.base.entity.bo.AdminBO;
 import com.szhc.acgcoco.base.util.RedisUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

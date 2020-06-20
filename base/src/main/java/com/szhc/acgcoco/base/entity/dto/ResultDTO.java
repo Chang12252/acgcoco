@@ -1,4 +1,4 @@
-package com.szhc.acgcoco.base.dto;
+package com.szhc.acgcoco.base.entity.dto;
 
 import java.io.Serializable;
 
