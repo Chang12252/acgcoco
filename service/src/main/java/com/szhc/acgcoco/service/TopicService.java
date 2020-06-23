@@ -1,5 +1,7 @@
 package com.szhc.acgcoco.service;
 
+import com.szhc.acgcoco.base.entity.bo.ClassifyBO;
+import com.szhc.acgcoco.base.entity.bo.TopicBO;
 import com.szhc.acgcoco.base.entity.dto.TopicDTO;
 import com.szhc.acgcoco.dao.TopicDAO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -71,8 +73,7 @@ public class TopicService {
         return this.topicDao.deleteById(id) > 0;
     }
 
-    public void queryTopicAll() {
-
-
+    public List<ClassifyBO> queryTopicAll() {
+        return topicDao.queryTopicAll();
     }
 }

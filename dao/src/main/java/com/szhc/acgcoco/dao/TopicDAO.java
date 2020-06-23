@@ -1,5 +1,7 @@
 package com.szhc.acgcoco.dao;
 
+import com.szhc.acgcoco.base.entity.bo.ClassifyBO;
+import com.szhc.acgcoco.base.entity.bo.TopicBO;
 import com.szhc.acgcoco.base.entity.dto.TopicDTO;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Component;
@@ -64,5 +66,7 @@ public interface TopicDAO {
      * @return 影响行数
      */
     int deleteById(Long id);
+
+    List<ClassifyBO> queryTopicAll();
 
 }

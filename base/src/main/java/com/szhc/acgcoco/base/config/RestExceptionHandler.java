@@ -19,10 +19,10 @@ public class RestExceptionHandler{
      * @param e
      * @return
      */
-    @ExceptionHandler(value = Exception.class)
+/*    @ExceptionHandler(value = Exception.class)
     public ResultDTO restExceptionHandle(Exception e) {
         log.error("error:{}",e);
         return ResultDTOBuilder.failure("00003");
-    }
+    }*/
 
 }

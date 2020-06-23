@@ -26,7 +26,11 @@ public class TopicDTO implements Serializable {
     */
     private Date createTime;
 
+    private String icon;//图标
 
+    private String intro;//简介
+
+    private int status;// 状态
     public Long getId() {
         return id;
     }
@@ -59,4 +63,31 @@ public class TopicDTO implements Serializable {
         this.createTime = createTime;
     }
 
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
+    public String getIcon() {
+        return icon;
+    }
+
+    public void setIcon(String icon) {
+        this.icon = icon;
+    }
+
+    public String getIntro() {
+        return intro;
+    }
+
+    public void setIntro(String intro) {
+        this.intro = intro;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
 }
