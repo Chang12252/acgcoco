@@ -7,6 +7,7 @@
         <result property="path" column="path" jdbcType="VARCHAR"/>
         <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
         <result property="sort" column="sort" jdbcType="INTEGER"/>
+        <result property="image" column="image" />
     </resultMap>
 
     <!--查询单个-->
@@ -28,14 +29,14 @@
     <!--通过实体作为筛选条件查询-->
     <select id="queryAll" resultMap="InformationBannerMap">
         select
-          id, path, create_time, sort
+         *
         from public.information_banner
     </select>
 
     <!--新增所有列-->
     <insert id="insert" keyProperty="id" useGeneratedKeys="true">
-        insert into public.information_banner(path, create_time, sort)
-        values (#{path}, #{createTime}, #{sort})
+        insert into public.information_banner(path, create_time, sort,image)
+        values (#{path}, NOW(), #{sort},#{image})
     </insert>
 
     <!--通过主键修改数据-->
@@ -50,6 +51,9 @@
             </if>
             <if test="sort != null">
                 sort = #{sort},
+            </if>
+            <if test="image != null">
+                image = #{image},
             </if>
         </set>
         where id = #{id}

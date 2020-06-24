@@ -22,8 +22,8 @@ public class OpencvMain {
             System.out.println("文件不存在");
         }else{
             Mat srcImg = Imgcodecs.imread(fileName);  //opencv读取
-            Imgproc imgproc=new Imgproc();
-            Imgproc.cvtColor(srcImg,srcImg,6);
+            Imgproc.cvtColor(srcImg,srcImg,6); //转化为 2 值图
+         //   Imgproc.CascadeClassifier();
             srcImg.dataAddr();
         if (srcImg.empty()){
                 System.out.println("加载图片失败！");
