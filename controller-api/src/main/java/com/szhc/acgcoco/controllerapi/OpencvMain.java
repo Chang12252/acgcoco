@@ -1,10 +1,10 @@
 package com.szhc.acgcoco.controllerapi;
 
-import org.opencv.core.Core;
+/*import org.opencv.core.Core;
 import org.opencv.core.Mat;
 import org.opencv.highgui.HighGui;
 import org.opencv.imgcodecs.Imgcodecs;
-import org.opencv.imgproc.Imgproc;
+import org.opencv.imgproc.Imgproc;*/
 
 import java.io.File;
 
@@ -12,7 +12,7 @@ import java.io.File;
 
 public class OpencvMain {
 
-    static {
+/*    static {
         System.loadLibrary(Core.NATIVE_LIBRARY_NAME);  //加载动态链接库
     }
 
@@ -33,6 +33,6 @@ public class OpencvMain {
             }
         }
 
-    }
+    }*/
     
 }
